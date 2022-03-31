@@ -48,4 +48,53 @@ class SideMenuVC: UIViewController , UITableViewDelegate,UITableViewDataSource{
         UIApplication.shared.setTab(index: indexPath.row+1)
 //        self.selectedOption = self.arraySideMenuItems[indexPath.row].title
 //        delegate?.userDidSelectMenu(selectedMenu: 
-      
+      self.selectedOption)
+        
+    }
+    
+
+    //MARK:- Outlet
+    @IBOutlet weak var sideMenuTableView :UITableView!
+    @IBOutlet weak var btnLogout : UIButton!
+    
+    //MARK:- Class Variable
+    var arraySideMenuItems : [SideMenuItemModel] = []
+    var selectedOption = ""
+    var delegate: DataEnteredDelegate? = nil
+    
+    //MARK:- Custom Method
+    
+    func setUpView(){
+        self.applyStyle()
+        self.sideMenuTableView.delegate = self
+        self.sideMenuTableView.dataSource = self
+        
+        self.arraySideMenuItems = [
+            SideMenuItemModel(image: "homekit", title: "Events"),
+            SideMenuItemModel(image: "person.crop.circle.badge.checkmark.fill", title: "My Bookings"),
+//            SideMenuItemModel(image: "plus.circle.fill", title: "My Profile"),
+            SideMenuItemModel(image: "plus.circle.fill", title: "Contact Us"),
+        ]
+    }
+ @IBAction func btnBlankClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func btnSignOutClick(_ sender: Any) {
+        UIApplication.shared.setStart()
+    }
+    
+    func applyStyle(){
+        self.btnLogout.layer.cornerRadius = 10.0
+    }
+    
+    //MARK:- Action Method
+    
+    //MARK:- Delegates
+    
+    //MARK:- UILifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setUpView()
+    }
+}
