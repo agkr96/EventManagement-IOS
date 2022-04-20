@@ -102,8 +102,8 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         self.setUpView()
         
-        self.txtPassword.text = "Test@1234" //Test@1234
-        self.txtUserName.text = "oTest1" //oTest1   test123
+        self.txtPassword.text = "" //Test@1234
+        self.txtUserName.text = "" //oTest1   test123
     }
     
     override func viewWillAppear(_ animated: Bool) {
