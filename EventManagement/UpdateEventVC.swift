@@ -59,7 +59,7 @@ class UpdateEventVC: UIViewController, UITextFieldDelegate {
         toolBar.sizeToFit()
         toolBar.backgroundColor = .white
         
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelClick))
+        let cancelButton = UIBarButtonItem(title: "Ok", style: .plain, target: self, action: #selector(self.cancelClick))
         toolBar.setItems([cancelButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
